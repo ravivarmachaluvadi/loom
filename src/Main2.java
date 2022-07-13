@@ -1,8 +1,4 @@
-import java.time.Duration;
-import java.time.Instant;
 import java.util.concurrent.CountDownLatch;
-import java.util.stream.IntStream;
-
 public class Main2 {
     private static int MAX=10000000;
     private static CountDownLatch latch=new CountDownLatch(MAX);
