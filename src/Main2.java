@@ -1,6 +1,6 @@
 import java.util.concurrent.CountDownLatch;
 public class Main2 {
-    private static int MAX=10000000;
+    private static int MAX=10;
     private static CountDownLatch latch=new CountDownLatch(MAX);
     public static void main(String[] args) throws InterruptedException {
         long beg = System.currentTimeMillis();
@@ -18,13 +18,13 @@ public class Main2 {
         System.out.println(end-beg);
     }
     private static void printVal(int value) {
-        //System.out.println("Printing : "+value+"---"+Thread.currentThread());
+        System.out.println("Printing : "+value+"---"+Thread.currentThread());
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        //System.out.println("Printed : "+value+"---"+Thread.currentThread());
+        System.out.println("Printed : "+value+"---"+Thread.currentThread());
         latch.countDown();
     }
 }
