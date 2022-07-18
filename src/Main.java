@@ -10,8 +10,8 @@ public class Main {
         System.out.println(str);
 
         // Creating object with default constructor
-        Employee e1 = new Employee(1001, "Derok", "Dranf",15);
-        Employee e2 = new Employee(1001, "Derok", "Dranf",15);
+        Employee e1 = new Employee(1001, "Derok", "Dranf",22);
+        Employee e2 = new Employee(1001, "Derok", "Dranf",22);
 
         // Auto generated getter methods
         System.out.println(e1.id() + " " + e1.firstName()
