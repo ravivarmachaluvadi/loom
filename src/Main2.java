@@ -3,6 +3,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
+
+// javac --enable-preview --release 19 Main2.java
+//java --enable-preview Main2
 public class Main2 {
     private static int MAX=10;
     private static CountDownLatch latch=new CountDownLatch(MAX);
