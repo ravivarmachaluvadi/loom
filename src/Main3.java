@@ -10,18 +10,14 @@ import static java.lang.Thread.sleep;
 
 public class Main3 {
     public static void main(String[] args) throws InterruptedException {
-
         ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
-
-        List<Future<Integer>> list=new ArrayList<>();
+        List<Future<Integer>> list = new ArrayList<>();
         // ExecutorService executorService1 = Executors.newFixedThreadPool(10);
-
         Instant start = Instant.now();
-
-        for (int value = 1; value < 101; value++) {
+        for (int value = 1; value < 11; value++) {
             int finalValue = value;
             list.add(executorService.submit(() -> {
-                System.out.println("Printing " + finalValue + " " + Thread.currentThread());
+                System.out.println("Start Printing " + finalValue + " " + Thread.currentThread());
                 int theVal = 0;
                 try {
                     sleep(5000);
@@ -29,30 +25,18 @@ public class Main3 {
                 } catch (InterruptedException e) {
                     System.out.println("Virtual Thread Execution Exception");
                 }
-                System.out.println("Printing " + theVal + " " + Thread.currentThread());
+                System.out.println("End Printing " + theVal + " " + Thread.currentThread());
                 return theVal;
             }));
         }
-
         executorService.shutdown();
         executorService.awaitTermination(10, TimeUnit.MINUTES);
         Instant end = Instant.now();
         System.out.println(Duration.between(start, end).toSeconds());
-
-        list.forEach(integerFuture -> {
-            try {
-                System.out.println(integerFuture.get());
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (ExecutionException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
+//        list.forEach(integerFuture printv values
     }
 
     private static int getSame(int finalValue) {
-
         return finalValue;
     }
 }
